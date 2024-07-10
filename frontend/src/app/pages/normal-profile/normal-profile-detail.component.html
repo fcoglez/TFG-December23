@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+<div class="col-md-6">
+  <div class="card" style="width: 400px;">
+    <img [src]="normalUser?.image | imagen: 'user'" class="card-img-top text-center" alt="Imagen del perfil" style="width: 400px; height: 300px;">
+    <table class="table table-borderless text-center">
+      <tbody>
+        <tr>
+          <td class="h5"><strong>Nombre</strong></td>
+          <td class="h5">{{ normalUser?.name }}</td>
+        </tr>
+        <tr>
+          <td class="h5"><strong>Apellidos</strong></td>
+          <td class="h5">{{ normalUser?.surname }}</td>
+        </tr>
+        <tr>
+          <td class="h5"><strong>Email</strong></td>
+          <td class="h5">{{ normalUser?.email }}</td>
+        </tr>
+        <tr>
+          <td class="h5"><strong>Rol</strong></td>
+          <td class="h5">{{ normalUser?.role }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-center">
+            <button type="button" class="btn btn-primary mt-3" (click)="editUser(normalUser)">Editar Usuario</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</div>
+

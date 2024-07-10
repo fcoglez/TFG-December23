@@ -1,0 +1,61 @@
+<div class="row mt-5">
+  <div [ngClass]="{'col-md-6' : userSelected}">
+    <form id="msform" [formGroup]="formUser" (submit)="save()" class="form-container">
+      <h2 class="mb-4 text-center">{{ userSelected ? 'Editando Usuario' : 'Nuevo Usuario' }}</h2>
+      <div class="mb-3">
+        <label for="name" class="form-label label">Nombre</label>
+        <input type="text" id="name" class="form-control small-input space-input" formControlName="name" required />
+        <div *ngIf="formUser.get('name')!.hasError('required') && formUser.get('name')!.touched" class="text-danger">Nombre es requerido</div>
+      </div>
+      <div class="mb-3">
+        <label for="surname" class="form-label label">Apellido</label>
+        <input type="text" id="surname" class="form-control small-input space-input" formControlName="surname" required />
+        <div *ngIf="formUser.get('surname')!.hasError('required') && formUser.get('surname')!.touched" class="text-danger">Apellido es requerido</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label label">Email</label>
+        <input type="email" id="email" class="form-control small-input space-input" formControlName="email" required />
+        <div *ngIf="formUser.get('email')!.hasError('required') && formUser.get('email')!.touched" class="text-danger">Email es requerido</div>
+        <div *ngIf="formUser.get('email')!.hasError('email') && formUser.get('email')!.touched" class="text-danger">Formato de correo electrónico no válido</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label label">Contraseña</label>
+        <input type="password" id="password" class="form-control small-input space-input" formControlName="password" required />
+        <div *ngIf="formUser.get('password')!.hasError('required') && formUser.get('password')!.touched" class="text-danger">Contraseña es requerida</div>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label label ">Role</label>
+        <select class="form-select small-input space-input" formControlName="role">
+          <option value="" selected disabled>Selecciona un rol</option>
+          <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+        </select>
+        <div *ngIf="formUser.get('role')!.hasError('required') && formUser.get('role')!.touched" class="text-danger">Rol es requerido</div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="action-button custom-width">
+          <i class="bi bi-save"></i> Guardar
+        </button>
+        <button (click)="back()" type="button" class="action-button-back custom-width  ms-2">
+          <i  class="bi bi-arrow-left"></i> Volver
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="userSelected"  class="col-md-6 ">
+    <div class="card card-image">
+      <h2 class="card-subtitle text-center mt-3">Imagen del Usuario</h2>
+     <div class="card-body">
+       <div class="text-center mt-4">
+         <img *ngIf="!imgTemp" [src]="userSelected.image | imagen: 'user'" class="custom-image">
+         <img *ngIf="imgTemp" [src]="imgTemp" class="custom-image">
+       </div>
+       <div class="text-center mb-4 mt-4 ">
+        <input type="file" class="d-block mx-auto" (change)="changeImage($event)">
+        <button type="button" class="action-button mt-5" [disabled]="!imageLoaded" (click)="loadImage()">
+            Cambiar
+        </button>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>

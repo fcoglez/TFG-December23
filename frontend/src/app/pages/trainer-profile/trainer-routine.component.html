@@ -1,0 +1,54 @@
+<div class="form-container mt-5">
+  <table class="table table-striped table-bordered table-custom text-center mt-5 ">
+    <thead>
+      <tr>
+        <th scope="col">Usuarios con rutinas asignadas</th>
+        <th scope="col">Role</th>
+        <th scope="col">Rutina</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userWithRoutine of allUsersWithRoutines">
+        <td class="align-middle">{{ userWithRoutine.name }}</td>
+        <td class="align-middle">{{ userWithRoutine.role }}</td>
+        <td class="align-middle">{{ userWithRoutine.routine_name }}</td>
+        <td class="text-center">
+          <button type="submit" class="btn btn-danger" (click)="removeRoutineToUser(userWithRoutine.user_id)">
+            <i class="fas fa-remove"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="form-container mt-5">
+    <table class="table table-striped table-bordered table-custom text-center mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Usuarios sin rutinas asignadas</th>
+          <th scope="col">Role</th>
+          <th scope="col">Asignar Rutina</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userWithoutRoutine of allUsersWithoutRoutines">
+          <td class="align-middle">{{ userWithoutRoutine.name }}</td>
+          <td class="align-middle">{{ userWithoutRoutine.role }}</td>
+          <td class="align-middle">
+            <select [(ngModel)]="userWithoutRoutine.selectedRoutine" class="form-select">
+              <option value="" disabled selected>Select a routine</option>
+              <option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+            </select>
+          </td>
+          <td class="text-center">
+            <button type="submit" class="btn btn-success" (click)="assignRoutine(userWithoutRoutine.user_id, userWithoutRoutine.selectedRoutine)">
+              <i class="fas fa-check"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,62 @@
+<h1 class="text-center mt-5 fs-1" style="color: rgb(0, 119, 182); font-weight: bold;">
+  Entrenador <span class="text-dark ">{{ trainer?.data?.name }}</span>
+</h1>
+  <div class="container mt-5 border border-dark p-4 text-center form-container ">
+    <h2>Usuarios Asignados</h2>
+      <table class="table table-striped custom-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersWithTrainer">
+            <td>
+                {{ user.name }}
+            </td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+              <button type="submit" class="btn btn-danger" (click)="removeUsersFromTrainer(user)">
+                <i class="fas fa-remove"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="container mt-5 border border-dark p-4 form-container">
+    <h2 class="text-center mb-5">Usuarios sin entrenadores</h2>
+      <table class="table table-striped custom-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersWithOutTrainers">
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+              <button type="submit" class="btn btn-success" (click)="assignUsersToTrainer(user.id, trainer.data.id)">
+                <i class="fas fa-check"></i>
+              </button>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+
+
+
+
+

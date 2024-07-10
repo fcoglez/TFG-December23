@@ -1,0 +1,32 @@
+<button class="btn btn-success mt-3" (click)="newUser()">
+  <i class="fa-solid fa-user-plus"></i> Agregar Nuevo Usuario
+</button>
+<table class="table table-striped table-bordered table-custom text-center mt-5" >
+  <thead class="table-dark" >
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Email</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td class="align-middle">{{ user.name }}</td>
+      <td class="align-middle">{{ user.surname }}</td>
+      <td class="align-middle">{{ user.role }}</td>
+      <td class="align-middle">{{ user.email }}</td>
+      <td class="text-center">
+        <button class="btn btn-primary me-3" (click)="editUser(user)">
+          <i class="fa-solid fa-pencil"></i>
+        </button>
+        <button *ngIf="user.role != 'admin'" class="btn btn-danger" (click)="removeUser(user)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

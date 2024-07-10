@@ -1,0 +1,23 @@
+.card-zoom:hover {
+  transform: scale(1.08);
+  transition: transform 0.2s;
+}
+
+.p1{
+  font-size: 1.2rem;
+}
+
+
+/* styles.css */
+@keyframes moveLeftToRight {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.moveLeftToRight {
+  animation: moveLeftToRight 2s ease-in-out;
+}

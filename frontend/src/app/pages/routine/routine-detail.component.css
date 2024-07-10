@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', Arial, Verdana;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.border-rounded {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rounded-box {
+  background-color: rgb(184, 234, 243);
+}
+
+.form-container {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.small-input {
+  max-width: 400px;
+}
+
+.action-button {
+  width: 100%;
+  max-width: 150px;
+  background: rgb(0, 180, 216);
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px auto;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.action-button-back-rou {
+  width: 100%;
+  max-width: 150px;
+  background: rgb(253, 62, 62);
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px auto;
+  text-decoration: none;
+  font-size: 17px;
+  display: inline-block;
+}
+
+.action-button:hover,
+.action-button:focus {
+  box-shadow: 0 0 0 2px rgb(202, 240, 248), 0 0 0 3px #e5ece8;
+}
+
+.form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-check-label {
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.checkbox-group {
+  border: 1px solid #a8a8a8;
+  padding: 20px;
+  text-align: left;
+}
+
+.checkbox-item {
+  margin-bottom: 10px;
+  margin-left: 120px;
+}
+
+
+.checkbox-container {
+  width: 100%;
+}
+
+.fa-solid {
+  position: absolute;
+  top: 160px;
+  right: 300px;
+  font-size: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.fa-solid:hover {
+  transform: scale(1.4);
+}
+
+.checkbox-group .form-check-input {
+  border: 1px solid #000;
+}
+
+.checkbox-group .form-check-input:checked {
+  background-color: rgb(0, 119, 182);
+  border-color: #000000;
+}
+
+.checkbox-group .form-check-label {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+select[multiple] option:checked,
+select[multiple] option:active {
+  background-color:rgb(0, 180, 216);
+  color: white;
+}
+

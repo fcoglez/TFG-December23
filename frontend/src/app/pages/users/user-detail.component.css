@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', Arial, Verdana;
+}
+
+.form-container {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.action-button {
+  width: 100%;
+  max-width: 150px;
+  background: rgb(0, 180, 216);
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px auto;
+  text-decoration: none;
+  font-size: 17px;
+  display: inline-block;
+}
+
+.large-textarea {
+  height: 150px;
+}
+
+.custom-width {
+  width: 100px;
+}
+
+.label {
+  font-size: 18px;
+}
+
+.card-image{
+  height: 515px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+}
+
+.custom-image {
+  margin-top: 50px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+

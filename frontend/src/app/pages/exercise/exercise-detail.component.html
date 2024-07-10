@@ -1,0 +1,46 @@
+<div class="row mt-5">
+  <div [ngClass]="{'col-md-6' : exerciseSelected}">
+    <form [formGroup]="formExercise" (submit)="save()" class="form-container narrow-form ">
+      <h2 class="mb-4 text-center">{{ exerciseSelected ? 'Editando Ejercicio' : 'Nuevo Ejercicio' }}</h2>
+      <div class="form-group mb-3">
+        <label for="name" class="label">Nombre</label>
+        <input type="text" id="name" class="form-control small-input space-input" formControlName="name" required />
+        <div *ngIf="formExercise.get('name')!.hasError('required') && formExercise.get('name')!.touched" class="text-danger mt-2">Nombre es requerido</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description" class="label">Descripción</label>
+        <textarea id="description" class="form-control large-textarea" formControlName="description" required></textarea>
+        <div *ngIf="formExercise.get('description')!.hasError('required') && formExercise.get('description')!.touched" class="text-danger mt-2">Descripción es requerida</div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button type="submit" class="action-button btn btn-sm custom-width">
+          <i class="bi bi-save"></i> Guardar
+        </button>
+        <button routerLink="/exercise" type="button" class="action-button-back-exe btn btn-sm custom-width ms-2">
+          <i  class="bi bi-arrow-left"></i> Volver
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="exerciseSelected"  class="col-md-6">
+    <div class="card card-image">
+      <h2 class="card-subtitle text-center mt-3">Imagen del Usuario</h2>
+     <div class="card-body">
+      <div class="text-center mt-4">
+        <img *ngIf="!imgTemp" [src]="exerciseSelected.image | imagen: 'exercises'" class="custom-image">
+        <img *ngIf="imgTemp" [src]="imgTemp" class="custom-image">
+    </div>
+       <div class="text-center mb-4 mt-4">
+        <input type="file" class="d-block mx-auto" (change)="changeImage($event)">
+        <button type="button" class="action-button mt-4" [disabled]="!imageLoaded" (click)="loadImage()">
+            Cambiar
+        </button>
+        </div>
+      </div>
+     </div>
+  </div>
+</div>
+
+
+
+

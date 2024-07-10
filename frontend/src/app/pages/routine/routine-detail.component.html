@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="border-rounded rounded-box form-container">
+        <form [formGroup]="formRoutine" (submit)="save()" class="needs-validation" novalidate>
+          <h1 class="mb-4 text-center">{{ routineSelected ? 'Editando Rutina' : 'Nueva Rutina' }}</h1>
+
+          <div class="mb-3">
+            <label for="name" class="label">Nombre</label>
+            <input type="text" id="name" formControlName="name" class="form-control small-input space-input" required>
+            <div *ngIf="formRoutine.get('name')!.hasError('required') && formRoutine.get('name')!.touched" class="text-danger">Descripción es requerida</div>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="label">Descripción</label>
+            <textarea id="description" formControlName="description" class="form-control small-input" rows="5"></textarea>
+            <div *ngIf="formRoutine.get('description')!.hasError('required') && formRoutine.get('description')!.touched" class="text-danger">Descripción es requerida</div>
+          </div>
+          <select formControlName="exercises" class="form-select" multiple aria-label="multiple select example" [size]="exercises?.length">
+            <option *ngFor="let exercise of exercises" [value]="exercise.id">{{ exercise.name }}</option>
+          </select>
+          <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="action-button btn ">
+              <i class="bi bi-save"></i> Guardar
+            </button>
+            <button routerLink="/routine" type="button" class="action-button-back-rou btn btn-sm custom-width ms-2">
+              <i  class="bi bi-arrow-left"></i> Volver
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

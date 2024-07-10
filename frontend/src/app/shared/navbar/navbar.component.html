@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <img class="navbar-logo" src="assets/images/logo.png" alt="Logo del centro deportivo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul *ngIf="!auth.isLoggedIn()" class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3">
+            <li  class="nav-item mx-5">
+              <a routerLink="/" class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="activity" class="nav-link active" aria-current="page" href="#">Servicios - Actividades</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/about" class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/login" class="bt-login"><button class="btn btn-primary">Iniciar Sesión</button></a>
+             </li>
+          </ul>
+          <ul *ngIf="auth.isLoggedIn() && auth.roleUser() == 'admin'" class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3">
+            <!-- ADMIN -->
+            <li class="nav-item mx-5">
+              <a routerLink="/user" class="nav-link active" aria-current="page" href="#">Usuarios</a>
+            </li>
+
+            <li class="nav-item mx-5">
+              <a routerLink="/exercise" class="nav-link active" aria-current="page" href="#">Ejercicios</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/routine" class="nav-link active" aria-current="page" href="#">Rutinas</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/trainer" class="nav-link active" aria-current="page" href="#">Entrenadores</a>
+            </li>
+
+            <li class="nav-item mx-5 ">
+              <a *ngIf="auth.isLoggedIn() " class="bt-login mt-2 ml-2 "><button (click)="logout()" class="btn   btn-danger mt-2">Logout</button></a>
+            </li>
+          </ul>
+          <!-- TRAINER -->
+          <ul *ngIf="auth.isLoggedIn() && auth.roleUser() == 'trainer'" class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3">
+            <li class="nav-item mx-5">
+              <a routerLink="/trainer-profile" class="nav-link active" aria-current="page" href="#">Perfil</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/trainer/{{userId}}" class="nav-link active" aria-current="page" href="#">Asignación Clientes</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/routine" class="nav-link active" aria-current="page" href="#">Gestión Rutinas</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a *ngIf="auth.isLoggedIn() " class="bt-login mt-2 ml-2"><button (click)="logout()" class="btn  btn-danger mt-2">Logout</button></a>
+            </li>
+          </ul>
+           <!-- NORMAL -->
+          <ul *ngIf="auth.isLoggedIn() && auth.roleUser() == 'normal'" class="navbar-nav ms-auto mb-2 mb-lg-0 mt-3 ">
+            <li class="nav-item mx-5">
+              <a routerLink="/normal-profile/detail" class="nav-link active" aria-current="page" href="#">Perfil</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a routerLink="/normal-profile" class="nav-link active" aria-current="page" href="#">Rutina</a>
+            </li>
+            <li class="nav-item" style="text-align: right;">
+              <a *ngIf="auth.isLoggedIn()" class="bt-login ">
+                <button (click)="logout()" class="btn btn-danger ">Logout</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

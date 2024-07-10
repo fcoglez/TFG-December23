@@ -1,0 +1,70 @@
+<h1 class="text-center mt-4" style="color: rgb(0, 119, 182); font-weight: bold;">Bienvenido <span class="text-dark ">{{ normalUser}}</span></h1>
+<div class="container">
+  <div *ngIf="trainerLoading"  class="d-flex justify-content-center align-items-center mt-5" >
+    <div class="card text-center mb-3" style="width: 800px;">
+      <div *ngIf="assignedTrainerName">
+        <p class="mt-2 " style="font-size: 34px;">
+          ¡Enhorabuena! Tu entrenador es
+          <span class="text-primary fw-bold">{{ assignedTrainerName }}</span>
+        </p>
+      </div>
+      <div *ngIf="!assignedTrainerName">
+        <p class="mt-2 display-6 text-danger fw-bold">
+          ¡Aún no tienes entrenador asignado!
+        </p>
+      </div>
+    </div>
+  </div>
+    <div class="mt-5">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="card text-center m-3" style="width: 850px; font-size: 34px;">
+          <div *ngIf="routine; else noRoutineMessage;">
+            <p class="mt-2">Tu rutina es
+              <span class="text-primary fw-bold">{{ routine.name }}</span>
+            </p>
+            <div class="d-flex flex-row flex-wrap justify-content-between mt-5">
+              <div class="card text-center mb-3 mx-2" *ngFor="let exercise of routine.exercises" style="width: 30%;">
+                <img [src]="exercise.image | imagen: 'exercises'" class="card-img-top normal-profile-custom-img" alt="Imagen de ejercicio">
+                <div class="card-body">
+                  <h5 class="card-title">{{ exercise.name }}</h5>
+                  <p style="font-size: 15px;">{{ exercise.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noRoutineMessage>
+            <p class="mt-2 display-6 text-danger fw-bold">
+              Este usuario no tiene rutina asignada.
+            </p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

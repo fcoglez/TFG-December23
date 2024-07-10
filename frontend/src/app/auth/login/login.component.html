@@ -1,0 +1,85 @@
+<i routerLink="/" class="fa-sharp fa-solid fa-circle-xmark"></i>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form [formGroup]="myFormRegister" (submit)="sendFormRegister(myFormRegister.value)">
+			<h1>Unete a SportCenter</h1>
+      <div class="form-group">
+        <input
+              type="text"
+              id="name"
+              [placeholder]="myFormRegister.get('name')!.hasError('required') && myFormRegister.get('name')!.touched ? 'El nombre es obligatorio' : 'Nombre'"
+              formControlName="name"
+              required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          id="surname"
+          [placeholder]="myFormRegister.get('surname')!.hasError('required') && myFormRegister.get('surname')!.touched ? 'El apellido es obligatorio' : 'Apellido'"
+          formControlName="surname"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          [placeholder]="(myFormRegister.get('email')!.hasError('required') || myFormRegister.get('email')!.hasError('email')) && myFormRegister.get('email')!.touched ? 'El correo es obligatorio' : 'Email'"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="form-group">
+			<input
+          type="password"
+          id="password"
+        [placeholder]="myFormRegister.get('password')!.hasError('required') && myFormRegister.get('password')!.touched ? 'La contraseña es obligatoria' : 'Contraseña'"
+        formControlName="password"
+        />
+      </div>
+
+      <button class="bt-res" type="submit">Registrar</button>
+		</form>
+	</div>
+
+	<div class="form-container sign-in-container">
+    <form [formGroup]="myFormLogin" (submit)="sendFormLogin()">
+      <h1>Iniciar Sesión</h1>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control"  formControlName="email"/>
+        <div *ngIf="myFormLogin.get('email')!.hasError('required') && myFormLogin.get('email')!.touched" class="text-danger">
+          El correo electrónico es obligatorio
+        </div>
+        <div *ngIf="myFormLogin.get('email')!.hasError('email') && myFormLogin.get('email')!.touched" class="text-danger">
+          Ingresa un correo electrónico válido
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" class="form-control"  formControlName="password"/>
+        <div *ngIf="myFormLogin.get('password')!.hasError('required') && myFormLogin.get('password')!.touched" class="text-danger">
+          La contraseña es obligatoria
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+	</div>
+
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1 style="color: white;">Bienvenido de nuevo!</h1>
+				<button class="ghost1" id="signIn">Iniciar Sesión</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1 style="color: white;">Hola, Amigo!</h1>
+        <img class="logo" src="./../../../assets/images/logo.png" alt="Logo del SportCenter">
+				<button class="ghost" id="signUp">Registrate</button>
+			</div>
+		</div>
+	</div>
+</div>

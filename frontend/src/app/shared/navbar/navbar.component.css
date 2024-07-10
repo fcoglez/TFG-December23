@@ -1,0 +1,70 @@
+.container-fluid {
+  background-color: rgb(0, 180, 216);
+}
+
+.container{
+  height: 120px;
+}
+
+.navbar-logo {
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-item li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.nav-item a{
+  font-size: 20px;
+}
+
+img {
+  height: 60px;
+  margin-left: -70px;
+  border-radius: 12px;
+}
+
+.bt-login {
+  margin-left: 50px;
+}
+
+.bt-login button {
+  font-weight: 700;
+  color: black;
+  padding: 9px 25px;
+  background-color: rgb(202, 240, 248);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.bt-login button:hover {
+  background-color: rgb(0, 119, 182);
+  color: rgb(3, 4, 94);
+  transform: scale(1.1);
+}
+
+.nav-item a:hover {
+  font-size: 700;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+  color: black;
+  transform: scale(1.1);
+}
+
